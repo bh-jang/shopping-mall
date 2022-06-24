@@ -10,8 +10,6 @@ const ProductList = () => {
         path: '/products'
     }))
 
-    console.log(data);
-
     return (
         <div>
             <ul className="products">
