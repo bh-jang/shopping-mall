@@ -1,21 +1,19 @@
 import { NavLink } from "react-router-dom";
-import { Product } from "../../types";
+import { PRODUCT } from "../../graphql/products";
 
 const ProductItem = ({
-    category,
-    image,
+    imageUrl,
     price,
     id,
-    rating,
-    title
-}: Product) => (
+    title,
+    createdAt
+}: PRODUCT) => (
     <li className="product-item">
         <NavLink to={`/products/${id}`}>
-            <p className="product-item__category">{category}</p>
             <p className="product-item__title">{title}</p>
-            <img className="product-item__img" src={image} />
-            <span className="product-item__price">${price}</span>
-            <span className="product-item__rating">({rating.rate})</span>
+            <img className="product-item__img" src={imageUrl} />
+            <p className="product-item__price">${price.toLocaleString()}</p>
+            <p className="product-item__createdAt">{createdAt}</p>
         </NavLink>
     </li>
 )

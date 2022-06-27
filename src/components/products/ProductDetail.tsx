@@ -1,22 +1,20 @@
-import { Product } from "../../types";
+import { PRODUCT } from "../../graphql/products";
 
 const ProductDetail = ({
     item: {
-        category,
         title,
-        image,
+        imageUrl,
         description,
         price,
-        rating: { rate },
+        createdAt
     }
-}: { item: Product }) => (
+}: { item: PRODUCT }) => (
     <div className="product-detail">
-        <p className="product-detail__category">{category}</p>
         <p className="product-detail__title">{title}</p>
-        <img className="product-detail__img" src={image} />
+        <img className="product-detail__img" src={imageUrl} />
         <p className="product-detail__description">{description}</p>
-        <span className="product-detail__price">${price}</span>
-        <span className="product-detail__rating">({rate})</span>
+        <p className="product-detail__price">${price.toLocaleString()}</p>
+        <p className="product-item__createdAt">{createdAt}</p>
     </div>
 )
 
